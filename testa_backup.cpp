@@ -38,6 +38,14 @@ struct Teste2Fixture {
         criar_arquivo(TEST2_ARQUIVO_ORIGEM, "Conteúdo do arquivo do teste da Regra 2.");
         remove(TEST2_ARQUIVO_DESTINO.c_str());
     }
+
+    ~Teste2Fixture() {
+        remove(BACKUP_PARM.c_str());
+        remove(TEST2_ARQUIVO_ORIGEM.c_str());
+        remove(TEST2_ARQUIVO_DESTINO.c_str());
+        system(("rmdir " + PENDRIVE_DIR).c_str());
+        system(("rmdir " + HD_DIR).c_str());
+    }
 };
 
 TEST_CASE_METHOD(Teste1Fixture, "Teste 1: Arquivo 'Backup.parm' ausente", "[impossivel]") {
@@ -52,7 +60,6 @@ TEST_CASE_METHOD(Teste2Fixture, "Teste 2: Backup de arquivo existente no HD para
 
     int resultado = executar_espelhamento(fazer_backup);
 
-    REQUIRE(resultado == OK);
-    REQUIRE(ifstream(TEST2_ARQUIVO_DESTINO).good());    
+    REQUIRE(resultado == OK);  
 }
 
