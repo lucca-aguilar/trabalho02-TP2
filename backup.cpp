@@ -2,6 +2,15 @@
 
 using namespace std;
 
+bool verificar_existencia_arquivo(const string& caminho) {
+    assert(!caminho.empty());
+    ifstream arquivo(caminho);
+    bool existencia = arquivo.is_open();
+    arquivo.close();
+
+    return existencia;
+}
+
 int copiar_arquivo(const string& origem, const string& destino) {
     assert(!origem.empty() && !destino.empty());
     
@@ -29,25 +38,15 @@ int executar_espelhamento(int fazer_backup) {
         string arquivo_origem = "HD_DIR/" + linha;
         string arquivo_destino = "PENDRIVE_DIR/" + linha;
 
-        ifstream hd_check(arquivo_origem);
-        ifstream pendrive_check(arquivo_destino);
+        bool hd_existe = verificar_existencia_arquivo(arquivo_origem);
+        bool pendrive_existe = verificar_existencia_arquivo(arquivo_destino);
 
         if(fazer_backup == 1) {
-            ifstream src_check(arquivo_origem);
-            ifstream dst_check(arquivo_destino);
-
-            if(src_check.is_open() && !dst_check.is_open()) {
-                int resultado = copiar_arquivo(arquivo_origem, arquivo_destino);
-
-                src_check.close();
-                dst_check.close();
-
-                return resultado;
+            if(hd_existe && !pendrive_existe) {
+                return copiar_arquivo(arquivo_origem, arquivo_destino);
             }
         } else {
-            if(!hd_check.is_open() && !pendrive_check.is_open()) {
-                hd_check.close();
-                pendrive_check.close();
+            if(!hd_existe && !pendrive_existe) {
                 return ERRO;
             } 
         }

@@ -67,4 +67,19 @@ int executar_espelhamento(int fazer_backup);
  */
 int copiar_arquivo(const string& origem, const string& destino);
 
+/**
+ * Função: verificar_existencia_arquivo
+ * @brief Verifica se um arquivo existe no caminho especificado.
+ * 
+ * Parâmetros:
+ * @param caminho - Caminho do arquivo a ser verificado.
+ * 
+ * Valor retornado:
+ * @return bool - true se o arquivo existe, false caso contrário.
+ * 
+ * Assertiva de entrada:
+ * caminho != NULL
+ */
+bool verificar_existencia_arquivo(const string& caminho);
+
 #endif
