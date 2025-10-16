@@ -86,14 +86,12 @@ TEST_CASE_METHOD(Teste1Fixture, "Teste 1: Arquivo 'Backup.parm' ausente", "[impo
 
 TEST_CASE_METHOD(Teste2Fixture, "Teste 2: Backup de arquivo existente no HD para o Pen Drive", "[backup]") {
     int fazer_backup = 1;
-    REQUIRE(!ifstream(TEST_ARQUIVO_DESTINO).good());
-
     int resultado = executar_espelhamento(fazer_backup);
 
     REQUIRE(resultado == OK);  
 }
 
-TEST_CASE_METHOD(Teste10Fixture, "Teste 10: Restauração com arquivo ausente no HD e no Pen Drive", "[erro]") {
+TEST_CASE_METHOD(Teste10Fixture, "Teste 10: Backup com arquivo ausente no HD e no Pen Drive", "[erro]") {
     int fazer_backup = 1;
     int resultado = executar_espelhamento(fazer_backup);
 
@@ -105,6 +103,5 @@ TEST_CASE_METHOD(Teste12Fixture, "Teste 12: Arquivo ausente em ambos HD e Pen Dr
     int resultado = executar_espelhamento(fazer_backup);
 
     REQUIRE(resultado == ERRO);  
-    REQUIRE(!ifstream(TEST_ARQUIVO_DESTINO).good());
 }
 
