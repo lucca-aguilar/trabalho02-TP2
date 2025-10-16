@@ -8,9 +8,11 @@
 
 using namespace std;
 
-#define OK 0
-#define ERRO 1
-#define IMPOSSIVEL 2
+#define BACKUP 0
+#define RESTAURACAO 1
+#define ERRO 2
+#define IMPOSSIVEL 3
+#define OK 4
 
 /**
  * Função: executar_espelhamento
@@ -27,9 +29,10 @@ using namespace std;
  * 
  * Valor retornado:
  * @return int - Código de retorno da operação:
- * 0 (OK) - Operação concluída com sucesso.
- * 1 (ERRO) - Erro na leitura do arquivo 'Backup.parm' ou ausência de arquivos a serem processados.
- * 2 (IMPOSSIVEL) - Operação impossível devido a erros críticos.
+ * 0 (BACKUP) - Operação de Backup concluída com sucesso.
+ * 1 (RESTAURACAO) - Operação de Backup concluída com sucesso. 
+ * 2 (ERRO) - Erro na leitura do arquivo 'Backup.parm' ou ausência de arquivos a serem processados.
+ * 3 (IMPOSSIVEL) - Operação impossível devido a erros críticos.
  * 
  * Assertiva de entrada:
  * fazer_backup == 1 || fazer_backup == 0
@@ -54,7 +57,7 @@ int executar_espelhamento(int fazer_backup);
  * Valor retornado:
  * @return int - Código de retorno da operação:
  * 0 (OK) - Operação concluída com sucesso.
- * 1 (ERRO) - Erro ao abrir ou copiar os arquivos.
+ * 2 (ERRO) - Erro ao abrir ou copiar os arquivos.
  * 
  * Assertiva de entrada:
  * origem != NULL
@@ -82,4 +85,4 @@ int copiar_arquivo(const string& origem, const string& destino);
  */
 bool verificar_existencia_arquivo(const string& caminho);
 
-#endif
+#endif // BACKUP_H

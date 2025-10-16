@@ -132,7 +132,7 @@ TEST_CASE_METHOD(Teste2Fixture, "Teste 2: Backup de arquivo existente no HD para
     int fazer_backup = 1;
     int resultado = executar_espelhamento(fazer_backup);
 
-    REQUIRE(resultado == OK);  
+    REQUIRE(resultado == BACKUP);  
 }
 
 TEST_CASE_METHOD(Teste6Fixture, "Teste 6: Restauração de arquivo não existente no Pen Drive para o HD", "[erro]") {
@@ -160,6 +160,6 @@ TEST_CASE_METHOD(Teste13Fixture, "Teste 13: Restauração de arquivo existente n
     int fazer_backup = 0;
     int resultado = executar_espelhamento(fazer_backup);
 
-    REQUIRE(resultado == OK);  
+    REQUIRE(resultado == RESTAURACAO);  
 }
 
