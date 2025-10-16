@@ -35,28 +35,34 @@ int executar_espelhamento(int fazer_backup) {
 
     string linha;
     if(getline(arquivo_parm, linha)) {
+
+        string origem_dir;
+        string destino_dir;
+
         if(fazer_backup == 1) {
-            string arquivo_origem = "hd/" + linha;
-            string arquivo_destino = "pendrive/" + linha;
+            origem_dir = "hd/";
+            destino_dir = "pendrive/";
+        } else {
+            origem_dir = "pendrive/";
+            destino_dir = "hd/";
+        }
 
-            bool hd_existe = verificar_existencia_arquivo(arquivo_origem);
-            bool pendrive_existe = verificar_existencia_arquivo(arquivo_destino);
+        string arquivo_origem = origem_dir + linha;
+        string arquivo_destino = destino_dir + linha;
 
-            if(!hd_existe && !pendrive_existe) {
+        bool origem_existe = verificar_existencia_arquivo(arquivo_origem);
+        bool destino_existe = verificar_existencia_arquivo(arquivo_destino);
+
+        if(fazer_backup == 1) {
+            if(!origem_existe && !destino_existe) {
                 return ERRO;
             }
 
-            if(hd_existe && !pendrive_existe) {
+            if(origem_existe && !destino_existe) {
                 return copiar_arquivo(arquivo_origem, arquivo_destino);
             }
         } else {
-            string arquivo_origem = "pendrive/" + linha;
-            string arquivo_destino = "hd/" + linha;
-
-            bool hd_existe = verificar_existencia_arquivo(arquivo_origem);
-            bool pendrive_existe = verificar_existencia_arquivo(arquivo_destino);
-
-            if(!hd_existe && !pendrive_existe) {
+            if(!origem_existe && !destino_existe) {
                 return ERRO;
             } 
         }
