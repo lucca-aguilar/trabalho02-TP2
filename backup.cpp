@@ -62,13 +62,9 @@ int executar_espelhamento(int fazer_backup) {
                 return copiar_arquivo(arquivo_origem, arquivo_destino);
             }
         } else {
-            if(!origem_existe && !destino_existe) {
+            if((!origem_existe && !destino_existe) || (!origem_existe && destino_existe)) {
                 return ERRO;
             } 
-
-            if(!origem_existe && destino_existe) {
-                return ERRO;
-            }
         }
     }
 
