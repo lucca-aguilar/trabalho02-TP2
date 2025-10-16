@@ -35,6 +35,14 @@ int copiar_arquivo(const string& origem, const string& destino) {
     return OK;
 } 
 
+int simular_data(const string& caminho) {
+    assert(!caminho.empty());
+    if(system(("touch " + caminho).c_str()) == 0) {
+        return OK;
+    }
+    return ERRO;
+}
+
 int executar_espelhamento(int fazer_backup) {
     assert(fazer_backup == 0 || fazer_backup == 1);
     

@@ -105,4 +105,26 @@ bool verificar_existencia_arquivo(const string& caminho);
  */
 void configurar_diretorios(int modo, string& origem_dir, string& destino_dir);
 
+/**
+ * Função: simular_data
+ * @brief Altera a data de modificação de um arquivo para torná-lo mais recente.
+ * 
+ * Descrição:
+ * Garante que o arquivo especificado tenha um timestamp mais recente
+ * que outro, ou que o sistema. Usa API do sistema operacional (utimes ou equivalente).
+ * 
+ * Parâmetros:
+ * @param caminho - Caminho do arquivo cuja data será alterada.
+ * 
+ * Valor retornado:
+ * @return int - Código de retorno da operação:
+ * 4 (OK) - Operação concluída com sucesso.
+ * 2 (ERRO) - Erro ao alterar a data do arquivo.
+ * 
+ * Assertiva de entrada:
+ * caminho != NULL
+ * (verificar_existencia_arquivo(caminho) == true)
+ */
+int simular_data(string& caminho);
+
 #endif // BACKUP_H

@@ -56,6 +56,23 @@ struct Teste2Fixture {
     }
 };
 
+struct Teste3Fixture {
+    Teste3Fixture() {
+        setup_dirs();
+
+        criar_arquivo(BACKUP_PARM, TEST_ARQUIVO + "\n");
+        criar_arquivo(PENDRIVE_ARQUIVO, "Conteúdo antigo do arquivo do teste da Regra 3.");
+        criar_arquivo(HD_ARQUIVO, "Conteúdo do arquivo do teste da Regra 3.");
+    }
+
+    ~Teste3Fixture() {
+        remove(BACKUP_PARM.c_str());
+        remove(HD_ARQUIVO.c_str());
+        remove(PENDRIVE_ARQUIVO.c_str());
+        cleanup_dirs();
+    }
+};
+
 // Garante o ambiente para o teste da Regra 6
 struct Teste6Fixture {
     Teste6Fixture() {
@@ -152,6 +169,13 @@ TEST_CASE_METHOD(Teste2Fixture, "Teste 2: Backup de arquivo existente no HD para
     REQUIRE(resultado == BACKUP);  
 }
 
+TEST_CASE_METHOD(Teste3Fixture, "Teste 3: Backup de arquivo existente no HD para o Pen Drive com atualização", "[backup]") {
+    int fazer_backup = 1;
+    int resultado = executar_espelhamento(fazer_backup);
+
+    REQUIRE(resultado == BACKUP);  
+}
+
 TEST_CASE_METHOD(Teste6Fixture, "Teste 6: Restauração de arquivo não existente no Pen Drive para o HD", "[erro]") {
     int fazer_backup = 0;
     int resultado = executar_espelhamento(fazer_backup);
@@ -186,4 +210,5 @@ TEST_CASE_METHOD(Teste13Fixture, "Teste 13: Restauração de arquivo existente n
 
     REQUIRE(resultado == RESTAURACAO);  
 }
+
 
