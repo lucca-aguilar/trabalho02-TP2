@@ -77,6 +77,13 @@ int executar_espelhamento(int fazer_backup) {
                 return FAZ_NADA;
             }
 
+            if(origem_existe && destino_existe) {
+                struct stat origem_stat, destino_stat;
+                
+                if(origem_stat.st_mtime > destino_stat.st_mtime) {
+                    if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) return BACKUP;
+                }
+            }
             return BACKUP;
         } else {
             if((!origem_existe && !destino_existe) || (!origem_existe && destino_existe)) {
