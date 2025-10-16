@@ -13,12 +13,22 @@ const string BACKUP_PARM = "Backup.parm";
 const string TEST_ARQUIVO = "teste.txt";
 const string PENDRIVE_DIR = "pendrive/";
 const string HD_DIR = "hd/";
-const string TEST_ARQUIVO_DESTINO = PENDRIVE_DIR + TEST_ARQUIVO;
-const string TEST_ARQUIVO_ORIGEM = HD_DIR + TEST_ARQUIVO;
+const string HD_ARQUIVO = HD_DIR + TEST_ARQUIVO;
+const string PENDRIVE_ARQUIVO = PENDRIVE_DIR + TEST_ARQUIVO;
 
 void criar_arquivo(const string& caminho, const string& conteudo) {
     ofstream ofs(caminho);
     ofs << conteudo;
+}
+
+void setup_dirs() {
+    system(("mkdir -p " + PENDRIVE_DIR).c_str());
+    system(("mkdir -p " + HD_DIR).c_str());
+}
+
+void cleanup_dirs() {
+    system(("rmdir " + PENDRIVE_DIR).c_str());
+    system(("rmdir " + HD_DIR).c_str());
 }
 
 // Garante o ambiente para o teste da Regra 1
@@ -31,50 +41,50 @@ struct Teste1Fixture {
 // Garante o ambiente para o teste da Regra 2
 struct Teste2Fixture {
     Teste2Fixture() {
-        system(("mkdir -p " + PENDRIVE_DIR).c_str());
-        system(("mkdir -p " + HD_DIR).c_str());
+        setup_dirs();
 
         criar_arquivo(BACKUP_PARM, TEST_ARQUIVO + "\n");
-        criar_arquivo(TEST_ARQUIVO_ORIGEM, "Conteúdo do arquivo do teste da Regra 2.");
-        remove(TEST_ARQUIVO_DESTINO.c_str());
+        criar_arquivo(HD_ARQUIVO, "Conteúdo do arquivo do teste da Regra 2.");
+        remove(PENDRIVE_ARQUIVO.c_str());
     }
 
     ~Teste2Fixture() {
         remove(BACKUP_PARM.c_str());
-        remove(TEST_ARQUIVO_ORIGEM.c_str());
-        remove(TEST_ARQUIVO_DESTINO.c_str());
-        system(("rmdir " + PENDRIVE_DIR).c_str());
-        system(("rmdir " + HD_DIR).c_str());
+        remove(HD_ARQUIVO.c_str());
+        remove(PENDRIVE_ARQUIVO.c_str());
+        cleanup_dirs();
     }
 };
 
+// Garante o ambiente para o teste da Regra 10
 struct Teste10Fixture {
     Teste10Fixture() {
+        setup_dirs();
+
         criar_arquivo(BACKUP_PARM, TEST_ARQUIVO + "\n");
-        remove(TEST_ARQUIVO_DESTINO.c_str());
-        remove(TEST_ARQUIVO_ORIGEM.c_str());
+        remove(HD_ARQUIVO.c_str());
+        remove(PENDRIVE_ARQUIVO.c_str());
     }
 
     ~Teste10Fixture() {
         remove(BACKUP_PARM.c_str());
+        cleanup_dirs();
     }
 };
 
 // Garante o ambiente para o teste da Regra 12
 struct Teste12Fixture {
     Teste12Fixture() {
-        system(("mkdir -p " + HD_DIR).c_str());
-        system(("mkdir -p " + PENDRIVE_DIR).c_str());
+        setup_dirs();
 
         criar_arquivo(BACKUP_PARM, TEST_ARQUIVO + "\n");
-        remove(TEST_ARQUIVO_DESTINO.c_str());
-        remove(TEST_ARQUIVO_ORIGEM.c_str());
+        remove(HD_ARQUIVO.c_str());
+        remove(PENDRIVE_ARQUIVO.c_str());
     }
 
     ~Teste12Fixture() {
         remove(BACKUP_PARM.c_str());
-        system(("rmdir " + PENDRIVE_DIR).c_str());
-        system(("rmdir " + HD_DIR).c_str());
+        cleanup_dirs();
     }
 };
 
