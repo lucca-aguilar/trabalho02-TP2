@@ -105,6 +105,23 @@ struct Teste12Fixture {
     }
 };
 
+struct Teste13Fixture {
+    Teste13Fixture() {
+        setup_dirs();
+
+        criar_arquivo(BACKUP_PARM, TEST_ARQUIVO + "\n");
+        remove(HD_ARQUIVO.c_str());
+        criar_arquivo(PENDRIVE_ARQUIVO, "Conteúdo do arquivo do teste da Regra 13.");
+    }
+
+    ~Teste13Fixture() {
+        remove(BACKUP_PARM.c_str());
+        remove(HD_ARQUIVO.c_str());
+        remove(PENDRIVE_ARQUIVO.c_str());
+        cleanup_dirs();
+    }
+};
+
 TEST_CASE_METHOD(Teste1Fixture, "Teste 1: Arquivo 'Backup.parm' ausente", "[impossivel]") {
     int fazer_backup = 1;
     int resultado = executar_espelhamento(1); 
@@ -137,5 +154,12 @@ TEST_CASE_METHOD(Teste12Fixture, "Teste 12: Arquivo ausente em ambos HD e Pen Dr
     int resultado = executar_espelhamento(fazer_backup);
 
     REQUIRE(resultado == ERRO);  
+}
+
+TEST_CASE_METHOD(Teste13Fixture, "Teste 13: Restauração de arquivo existente no Pen Drive para o HD", "[restauracao]") {
+    int fazer_backup = 0;
+    int resultado = executar_espelhamento(fazer_backup);
+
+    REQUIRE(resultado == OK);  
 }
 
