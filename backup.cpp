@@ -11,6 +11,16 @@ bool verificar_existencia_arquivo(const string& caminho) {
     return existencia;
 }
 
+void configurar_diretorios(int modo, string& origem_dir, string& destino_dir) {
+    if(modo == 1) {
+            origem_dir = "hd/";
+            destino_dir = "pendrive/";
+        } else {
+            origem_dir = "pendrive/";
+            destino_dir = "hd/";
+        }
+}
+
 int copiar_arquivo(const string& origem, const string& destino) {
     assert(!origem.empty() && !destino.empty());
     
@@ -35,17 +45,10 @@ int executar_espelhamento(int fazer_backup) {
 
     string linha;
     if(getline(arquivo_parm, linha)) {
-
         string origem_dir;
         string destino_dir;
 
-        if(fazer_backup == 1) {
-            origem_dir = "hd/";
-            destino_dir = "pendrive/";
-        } else {
-            origem_dir = "pendrive/";
-            destino_dir = "hd/";
-        }
+        configurar_diretorios(fazer_backup, origem_dir, destino_dir);
 
         string arquivo_origem = origem_dir + linha;
         string arquivo_destino = destino_dir + linha;

@@ -87,4 +87,22 @@ int copiar_arquivo(const string& origem, const string& destino);
  */
 bool verificar_existencia_arquivo(const string& caminho);
 
+/**
+ * Função: configurar_diretorios
+ * @brief Configura os diretórios de origem e destino com base no modo de operação.
+ * 
+ * Parâmetros:
+ * @param modo - 1 para Backup (HD -> Pen Drive), 0 para Restauração (Pen Drive -> HD).
+ * @param origem_dir - Referência para a string que armazenará o diretório de origem.
+ * @param destino_dir - Referência para a string que armazenará o diretório de destino.
+ * 
+ * Assertiva de entrada:
+ * modo == 1 || modo == 0
+ * 
+ * Assertiva de saída:
+ * Se modo == 1, origem_dir == "hd/" e destino_dir == "pendrive/"
+ * Se modo == 0, origem_dir == "pendrive/" e destino_dir == "hd/"
+ */
+void configurar_diretorios(int modo, string& origem_dir, string& destino_dir);
+
 #endif // BACKUP_H
