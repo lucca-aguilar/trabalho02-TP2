@@ -43,6 +43,23 @@ int simular_data(const string& caminho) {
     return ERRO;
 }
 
+int compara_datas(const string& caminho1, const string& caminho2) {
+    assert(!caminho1.empty() && !caminho2.empty());
+
+    struct stat stat1;
+    struct stat stat2;
+
+    if(stat(caminho1.c_str(), &stat1) != 0) {
+        return 0;
+    }
+
+    if(stat(caminho2.c_str(), &stat2) != 0) {
+        return 0;
+    }
+
+    return difftime(stat1.st_mtime, stat2.st_mtime);
+}
+
 int executar_espelhamento(int fazer_backup) {
     assert(fazer_backup == 0 || fazer_backup == 1);
     
@@ -78,10 +95,12 @@ int executar_espelhamento(int fazer_backup) {
             }
 
             if(origem_existe && destino_existe) {
-                struct stat origem_stat, destino_stat;
-                
-                if(origem_stat.st_mtime > destino_stat.st_mtime) {
-                    if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) return BACKUP;
+                if(compara_datas(arquivo_origem, arquivo_destino) > 0) {
+                    if(copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
+                        return BACKUP;
+                    } else {
+                        return ERRO;
+                    }
                 }
             }
             return BACKUP;

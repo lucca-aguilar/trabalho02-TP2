@@ -129,4 +129,27 @@ void configurar_diretorios(int modo, string& origem_dir, string& destino_dir);
  */
 int simular_data(string& caminho);
 
+/**
+ * Função: compara_datas
+ * @brief Compara as datas de modificação de dois arquivos.
+ * 
+ * Descrição:
+ * Retorna a diferença em segundos entre as datas de modificação dos arquivos.
+ * 
+ * Parâmetros:
+ * @param caminho1 - Caminho do primeiro arquivo.
+ * @param caminho2 - Caminho do segundo arquivo.
+ * 
+ * Valor retornado:
+ * @return int - Diferença em segundos entre as datas:
+ * > 0 se o primeiro arquivo é mais recente,
+ * < 0 se o segundo arquivo é mais recente,
+ * 0 se ambos têm a mesma data ou se algum arquivo não existe.
+ * 
+ * Assertiva de entrada:
+ * caminho1 != NULL
+ * caminho2 != NULL
+ */
+int compara_datas(const string& caminho1, const string& caminho2);
+
 #endif // BACKUP_H
