@@ -13,6 +13,7 @@ using namespace std;
 #define ERRO 2
 #define IMPOSSIVEL 3
 #define OK 4
+#define FAZ_NADA 5
 
 /**
  * Função: executar_espelhamento
@@ -33,6 +34,7 @@ using namespace std;
  * 1 (RESTAURACAO) - Operação de Backup concluída com sucesso. 
  * 2 (ERRO) - Erro na leitura do arquivo 'Backup.parm' ou ausência de arquivos a serem processados.
  * 3 (IMPOSSIVEL) - Operação impossível devido a erros críticos.
+ * 5 (FAZ_NADA) - Nenhuma ação necessária (arquivo já está atualizado).
  * 
  * Assertiva de entrada:
  * fazer_backup == 1 || fazer_backup == 0
@@ -56,7 +58,7 @@ int executar_espelhamento(int fazer_backup);
  * 
  * Valor retornado:
  * @return int - Código de retorno da operação:
- * 0 (OK) - Operação concluída com sucesso.
+ * 4 (OK) - Operação concluída com sucesso.
  * 2 (ERRO) - Erro ao abrir ou copiar os arquivos.
  * 
  * Assertiva de entrada:
