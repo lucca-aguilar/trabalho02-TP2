@@ -14,7 +14,7 @@ int copiar_arquivo(const string& origem, const string& destino) {
 
     dst << src.rdbuf();
     return OK;
-}
+} 
 
 int executar_espelhamento(int fazer_backup) {
     assert(fazer_backup == 0 || fazer_backup == 1);
@@ -29,6 +29,9 @@ int executar_espelhamento(int fazer_backup) {
         string arquivo_origem = "HD_DIR/" + linha;
         string arquivo_destino = "PENDRIVE_DIR/" + linha;
 
+        ifstream hd_check(arquivo_origem);
+        ifstream pendrive_check(arquivo_destino);
+
         if(fazer_backup == 1) {
             ifstream src_check(arquivo_origem);
             ifstream dst_check(arquivo_destino);
@@ -41,6 +44,12 @@ int executar_espelhamento(int fazer_backup) {
 
                 return resultado;
             }
+        } else {
+            if(!hd_check.is_open() && !pendrive_check.is_open()) {
+                hd_check.close();
+                pendrive_check.close();
+                return ERRO;
+            } 
         }
     }
 
