@@ -1,6 +1,13 @@
 #ifndef BACKUP_H
 #define BACKUP_H
 
+#include <fstream>
+#include <cassert>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
 #define OK 0
 #define ERRO 1
 #define IMPOSSIVEL 2
@@ -32,5 +39,32 @@
  */
 
 int executar_espelhamento(int fazer_backup);
+
+/**
+ * Função: copiar_arquivo
+ * @brief Copia o conteúdo de um arquivo de origem para um arquivo de destino.
+ * 
+ * Descrição:
+ * A função abre o arquivo de origem em modo binário, lê seu conteúdo e escreve no destino.
+ * 
+ * Parâmetros:
+ * @param origem - Caminho do arquivo de origem.
+ * @param destino - Caminho onde o arquivo deve ser criado/sobrescrito.
+ * 
+ * Valor retornado:
+ * @return int - Código de retorno da operação:
+ * 0 (OK) - Operação concluída com sucesso.
+ * 1 (ERRO) - Erro ao abrir ou copiar os arquivos.
+ * 
+ * Assertiva de entrada:
+ * origem != NULL
+ * destino != NULL
+ * (verificar_existencia_arquivo(origem) == true)
+ * 
+ * Assertiva de saída:
+* Se retorna OK, o arquivo destino existe.
+* Se retorna OK, (conteudo_arquivo(origem) == conteudo_arquivo(destino))
+ */
+int copiar_arquivo(const string& origem, const string& destino);
 
 #endif
