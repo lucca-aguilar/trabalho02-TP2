@@ -62,6 +62,10 @@ int executar_espelhamento(int fazer_backup) {
                 if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) return BACKUP;
             }
 
+            if(!origem_existe && destino_existe) {
+                return FAZ_NADA;
+            }
+
             return BACKUP;
         } else {
             if((!origem_existe && !destino_existe) || (!origem_existe && destino_existe)) {

@@ -167,7 +167,7 @@ TEST_CASE_METHOD(Teste10Fixture, "Teste 10: Backup com arquivo ausente no HD e n
 }
 
 TEST_CASE_METHOD(Teste11Fixture, "Teste 11: Backup de arquivo inexistente no HD e existente no Pen Drive", "[faz_nada]") {
-    int fazer_backup = 0;
+    int fazer_backup = 1;
     int resultado = executar_espelhamento(fazer_backup);
 
     REQUIRE(resultado == FAZ_NADA);  
