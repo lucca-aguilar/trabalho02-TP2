@@ -32,14 +32,12 @@ void cleanup_dirs() {
     system(("rmdir " + HD_DIR).c_str());
 }
 
-// Garante o ambiente para o teste da Regra 1
 struct Teste1Fixture {
     Teste1Fixture() {
         remove(BACKUP_PARM.c_str());
     }
 };
 
-// Garante o ambiente para o teste da Regra 2
 struct Teste2Fixture {
     Teste2Fixture() {
         setup_dirs();
@@ -109,7 +107,6 @@ struct Teste5Fixture {
     }
 };
 
-// Garante o ambiente para o teste da Regra 6
 struct Teste6Fixture {
     Teste6Fixture() {
         setup_dirs();
@@ -179,7 +176,6 @@ struct Teste9Fixture {
     }
 };
 
-// Garante o ambiente para o teste da Regra 10
 struct Teste10Fixture {
     Teste10Fixture() {
         setup_dirs();
@@ -195,7 +191,6 @@ struct Teste10Fixture {
     }
 };
 
-// Garante o ambiente para o teste da Regra 11
 struct Teste11Fixture {
     Teste11Fixture() {
         setup_dirs();
@@ -212,7 +207,6 @@ struct Teste11Fixture {
     }
 };
 
-// Garante o ambiente para o teste da Regra 12
 struct Teste12Fixture {
     Teste12Fixture() {
         setup_dirs();
