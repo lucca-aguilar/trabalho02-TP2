@@ -62,6 +62,52 @@ int compara_datas(const string& caminho1, const string& caminho2) {
     }
 }
 
+int executar_backup(const string& arquivo_origem,const string& arquivo_destino,bool origem_existe,bool destino_existe){
+    if(!origem_existe && !destino_existe) {
+        return ERRO;
+    }
+
+    if(origem_existe && !destino_existe) {
+        if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) return BACKUP;
+    }
+
+    if(!origem_existe && destino_existe) {
+        return FAZ_NADA;
+    }
+
+    if(origem_existe && destino_existe) {
+        if(compara_datas(arquivo_origem, arquivo_destino) > 0) {
+            if(copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
+                return BACKUP;
+            } else {
+                return ERRO;
+            }
+        } else {
+            return FAZ_NADA;
+        }
+    }
+
+    return ERRO;
+}
+
+int executar_restauracao(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe){
+    if((!origem_existe && !destino_existe) || (!origem_existe && destino_existe)) {
+        return ERRO;
+    }
+
+    if(origem_existe) {
+        if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
+            return RESTAURACAO;
+        } else {
+            return ERRO;
+        }
+    }
+
+    return ERRO;
+}
+
+
+
 int executar_espelhamento(int fazer_backup) {
     assert(fazer_backup == 0 || fazer_backup == 1);
     
@@ -84,36 +130,11 @@ int executar_espelhamento(int fazer_backup) {
         bool destino_existe = verificar_existencia_arquivo(arquivo_destino);
 
         if(fazer_backup == 1) {
-            if(!origem_existe && !destino_existe) {
-                return ERRO;
-            }
-
-            if(origem_existe && !destino_existe) {
-                if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) return BACKUP;
-            }
-
-            if(!origem_existe && destino_existe) {
-                return FAZ_NADA;
-            }
-
-            if(origem_existe && destino_existe) {
-                if(compara_datas(arquivo_origem, arquivo_destino) > 0) {
-                    if(copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
-                        return BACKUP;
-                    } else {
-                        return ERRO;
-                    }
-                } else {
-                    return FAZ_NADA;
-                }
-            }
-            return BACKUP;
+            return executar_backup(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
         } else {
-            if((!origem_existe && !destino_existe) || (!origem_existe && destino_existe)) {
-                return ERRO;
-            } 
+            return executar_restauracao(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
         }
-
-        return RESTAURACAO;
     };
+
+    return ERRO;
 }
