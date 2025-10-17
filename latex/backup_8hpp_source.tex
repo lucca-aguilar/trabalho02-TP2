@@ -1,0 +1,43 @@
+\doxysection{backup.\+hpp}
+\hypertarget{backup_8hpp_source}{}\label{backup_8hpp_source}\mbox{\hyperlink{backup_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BACKUP\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BACKUP\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ BACKUP\ 0}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ RESTAURACAO\ 1}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ ERRO\ 2}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ IMPOSSIVEL\ 3}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ OK\ 4}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ FAZ\_NADA\ 5}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{backup_8hpp_ae17bdd5525294b4aff6c7fac5f823486}{executar\_espelhamento}}(\textcolor{keywordtype}{int}\ fazer\_backup);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{backup_8hpp_a16ebd468ef1816235e72507144ab4c1e}{copiar\_arquivo}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ origem,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ destino);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{backup_8hpp_a9929ff686229737197666d0b68a50f33}{verificar\_existencia\_arquivo}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ caminho);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{backup_8hpp_ab9a56b96e7157ecf88985567868d5f76}{configurar\_diretorios}}(\textcolor{keywordtype}{int}\ modo,\ \textcolor{keywordtype}{string}\&\ origem\_dir,\ \textcolor{keywordtype}{string}\&\ destino\_dir);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{backup_8hpp_ab617a7681426ec56b66caab4af98f350}{simular\_data}}(\textcolor{keywordtype}{string}\&\ caminho);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{backup_8hpp_adc8ca1fc136115e5d4ff606f6fad5e8d}{compara\_datas}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ caminho1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ caminho2);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{backup_8hpp_a038e55c71493c7df051d27512f684d04}{executar\_transferencia}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ arquivo\_origem,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ arquivo\_destino,\ \textcolor{keywordtype}{bool}\ origem\_existe,\ \textcolor{keywordtype}{bool}\ destino\_existe,\ \textcolor{keywordtype}{bool}\ modo\_backup);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00226\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{backup_8hpp_ade10469b0aece6d4d0b7bf03e705fbc1}{copia\_restauracao}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ arquivo\_origem,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ arquivo\_destino);\ \ \ \ }
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00251\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{backup_8hpp_a5071418d0cea10e5c6f259b928b7cd79}{copia\_backup}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ arquivo\_origem,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ arquivo\_destino);}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BACKUP\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,49 @@
+#---------------------------------------------------------------------------
+# Project related configuration options
+#---------------------------------------------------------------------------
+
+PROJECT_NAME             = "Trabalho TP2 - Sistema de Backup"
+
+# ...
+
+OUTPUT_LANGUAGE          = Portuguese
+
+#---------------------------------------------------------------------------
+# Build related configuration options
+#---------------------------------------------------------------------------
+
+EXTRACT_ALL              = YES
+EXTRACT_PRIVATE          = YES
+EXTRACT_STATIC           = YES
+
+# ...
+
+HIDE_UNDOC_MEMBERS       = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to source browsing
+#---------------------------------------------------------------------------
+
+# ...
+
+# Se quiser que a documentação liste as funções na ordem que aparecem no arquivo:
+SORT_MEMBER_DOCS         = NO
+
+#---------------------------------------------------------------------------
+# Configuration options related to the HTML output
+#---------------------------------------------------------------------------
+
+JAVADOC_AUTOBRIEF        = YES
+
+# ...
+
+GENERATE_TREEVIEW        = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the input files
+#---------------------------------------------------------------------------
+
+INPUT                    = .
+RECURSIVE                = NO
+
+EXCLUDE                  = testa_backup.cpp catch_amalgamated.hpp catch_amalgamated.cpp

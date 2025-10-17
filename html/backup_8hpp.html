@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trabalho TP2 - Sistema de Backup: Referência ao ficheiro backup.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Trabalho TP2 - Sistema de Backup
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('backup_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle"><div class="title">Referência ao ficheiro backup.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Diagrama de dependências de inclusão para backup.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="backup_8hpp__incl.png" border="0" usemap="#abackup_8hpp" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais são os ficheiros que incluem directamente ou indirectamente este ficheiro:</div>
+<div class="dyncontent">
+<div class="center"><img src="backup_8hpp__dep__incl.png" border="0" usemap="#abackup_8hppdep" alt=""/></div>
+</div>
+</div>
+<p><a href="backup_8hpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a37cdf425bacf2f52353e462341f7e340" id="r_a37cdf425bacf2f52353e462341f7e340"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#a37cdf425bacf2f52353e462341f7e340">BACKUP</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a37cdf425bacf2f52353e462341f7e340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ae2f3e698c3fc5f6128fac9a66eefcc" id="r_a7ae2f3e698c3fc5f6128fac9a66eefcc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#a7ae2f3e698c3fc5f6128fac9a66eefcc">RESTAURACAO</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a7ae2f3e698c3fc5f6128fac9a66eefcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe708a1105887fbf680f47a02c7a8d26" id="r_afe708a1105887fbf680f47a02c7a8d26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#afe708a1105887fbf680f47a02c7a8d26">ERRO</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:afe708a1105887fbf680f47a02c7a8d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8bd3d3e659a7491ed179c62264733f3" id="r_aa8bd3d3e659a7491ed179c62264733f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#aa8bd3d3e659a7491ed179c62264733f3">IMPOSSIVEL</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:aa8bd3d3e659a7491ed179c62264733f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba51915c87d64af47fb1cc59348961c9" id="r_aba51915c87d64af47fb1cc59348961c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#aba51915c87d64af47fb1cc59348961c9">OK</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:aba51915c87d64af47fb1cc59348961c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7550d63976c0a54a4b94ec655436ee1" id="r_ab7550d63976c0a54a4b94ec655436ee1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#ab7550d63976c0a54a4b94ec655436ee1">FAZ_NADA</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ab7550d63976c0a54a4b94ec655436ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ae17bdd5525294b4aff6c7fac5f823486" id="r_ae17bdd5525294b4aff6c7fac5f823486"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#ae17bdd5525294b4aff6c7fac5f823486">executar_espelhamento</a> (int fazer_backup)</td></tr>
+<tr class="memdesc:ae17bdd5525294b4aff6c7fac5f823486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: executar_espelhamento.  <br /></td></tr>
+<tr class="separator:ae17bdd5525294b4aff6c7fac5f823486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16ebd468ef1816235e72507144ab4c1e" id="r_a16ebd468ef1816235e72507144ab4c1e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#a16ebd468ef1816235e72507144ab4c1e">copiar_arquivo</a> (const string &amp;origem, const string &amp;destino)</td></tr>
+<tr class="memdesc:a16ebd468ef1816235e72507144ab4c1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: copiar_arquivo.  <br /></td></tr>
+<tr class="separator:a16ebd468ef1816235e72507144ab4c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9929ff686229737197666d0b68a50f33" id="r_a9929ff686229737197666d0b68a50f33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#a9929ff686229737197666d0b68a50f33">verificar_existencia_arquivo</a> (const string &amp;caminho)</td></tr>
+<tr class="memdesc:a9929ff686229737197666d0b68a50f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: verificar_existencia_arquivo.  <br /></td></tr>
+<tr class="separator:a9929ff686229737197666d0b68a50f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9a56b96e7157ecf88985567868d5f76" id="r_ab9a56b96e7157ecf88985567868d5f76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#ab9a56b96e7157ecf88985567868d5f76">configurar_diretorios</a> (int modo, string &amp;origem_dir, string &amp;destino_dir)</td></tr>
+<tr class="memdesc:ab9a56b96e7157ecf88985567868d5f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: configurar_diretorios.  <br /></td></tr>
+<tr class="separator:ab9a56b96e7157ecf88985567868d5f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab617a7681426ec56b66caab4af98f350" id="r_ab617a7681426ec56b66caab4af98f350"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#ab617a7681426ec56b66caab4af98f350">simular_data</a> (string &amp;caminho)</td></tr>
+<tr class="memdesc:ab617a7681426ec56b66caab4af98f350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: simular_data.  <br /></td></tr>
+<tr class="separator:ab617a7681426ec56b66caab4af98f350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc8ca1fc136115e5d4ff606f6fad5e8d" id="r_adc8ca1fc136115e5d4ff606f6fad5e8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#adc8ca1fc136115e5d4ff606f6fad5e8d">compara_datas</a> (const string &amp;caminho1, const string &amp;caminho2)</td></tr>
+<tr class="memdesc:adc8ca1fc136115e5d4ff606f6fad5e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: compara_datas.  <br /></td></tr>
+<tr class="separator:adc8ca1fc136115e5d4ff606f6fad5e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a038e55c71493c7df051d27512f684d04" id="r_a038e55c71493c7df051d27512f684d04"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#a038e55c71493c7df051d27512f684d04">executar_transferencia</a> (const string &amp;arquivo_origem, const string &amp;arquivo_destino, bool origem_existe, bool destino_existe, bool modo_backup)</td></tr>
+<tr class="memdesc:a038e55c71493c7df051d27512f684d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: executar_transferencia.  <br /></td></tr>
+<tr class="separator:a038e55c71493c7df051d27512f684d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade10469b0aece6d4d0b7bf03e705fbc1" id="r_ade10469b0aece6d4d0b7bf03e705fbc1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#ade10469b0aece6d4d0b7bf03e705fbc1">copia_restauracao</a> (const string &amp;arquivo_origem, const string &amp;arquivo_destino)</td></tr>
+<tr class="memdesc:ade10469b0aece6d4d0b7bf03e705fbc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: copia_restauracao.  <br /></td></tr>
+<tr class="separator:ade10469b0aece6d4d0b7bf03e705fbc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5071418d0cea10e5c6f259b928b7cd79" id="r_a5071418d0cea10e5c6f259b928b7cd79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="backup_8hpp.html#a5071418d0cea10e5c6f259b928b7cd79">copia_backup</a> (const string &amp;arquivo_origem, const string &amp;arquivo_destino)</td></tr>
+<tr class="memdesc:a5071418d0cea10e5c6f259b928b7cd79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função: copia_backup.  <br /></td></tr>
+<tr class="separator:a5071418d0cea10e5c6f259b928b7cd79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentação das macros</h2>
+<a id="a37cdf425bacf2f52353e462341f7e340" name="a37cdf425bacf2f52353e462341f7e340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37cdf425bacf2f52353e462341f7e340">&#9670;&#160;</a></span>BACKUP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BACKUP&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ae2f3e698c3fc5f6128fac9a66eefcc" name="a7ae2f3e698c3fc5f6128fac9a66eefcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ae2f3e698c3fc5f6128fac9a66eefcc">&#9670;&#160;</a></span>RESTAURACAO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RESTAURACAO&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe708a1105887fbf680f47a02c7a8d26" name="afe708a1105887fbf680f47a02c7a8d26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe708a1105887fbf680f47a02c7a8d26">&#9670;&#160;</a></span>ERRO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ERRO&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8bd3d3e659a7491ed179c62264733f3" name="aa8bd3d3e659a7491ed179c62264733f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8bd3d3e659a7491ed179c62264733f3">&#9670;&#160;</a></span>IMPOSSIVEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IMPOSSIVEL&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba51915c87d64af47fb1cc59348961c9" name="aba51915c87d64af47fb1cc59348961c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba51915c87d64af47fb1cc59348961c9">&#9670;&#160;</a></span>OK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OK&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7550d63976c0a54a4b94ec655436ee1" name="ab7550d63976c0a54a4b94ec655436ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7550d63976c0a54a4b94ec655436ee1">&#9670;&#160;</a></span>FAZ_NADA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FAZ_NADA&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="ae17bdd5525294b4aff6c7fac5f823486" name="ae17bdd5525294b4aff6c7fac5f823486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17bdd5525294b4aff6c7fac5f823486">&#9670;&#160;</a></span>executar_espelhamento()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int executar_espelhamento </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fazer_backup</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: executar_espelhamento. </p>
+<p>Executa a lógica principal de espelhamente (backup ou restauração).</p>
+<p>Descrição: A função lê o arquivo 'Backup.parm', compara datas e executa a ação apropriada de acordo com a Tabela de Decisão para cada arquivo. A ausência de 'Backup.parm' ou a falta de arquivos a serem processados resultará em uma mensagem de erro.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fazer_backup</td><td>- Flag que define modo de operação: 1 para Backup (HD -&gt; Pen Drive) 0 para Restauração (Pen Drive -&gt; HD)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>int - Código de retorno da operação: 0 (BACKUP) - Operação de Backup concluída com sucesso. 1 (RESTAURACAO) - Operação de Backup concluída com sucesso. 2 (ERRO) - Erro na leitura do arquivo 'Backup.parm' ou ausência de arquivos a serem processados. 3 (IMPOSSIVEL) - Operação impossível devido a erros críticos. 5 (FAZ_NADA) - Nenhuma ação necessária (arquivo já está atualizado).</dd></dl>
+<p>Assertiva de entrada: fazer_backup == 1 || fazer_backup == 0</p>
+<p>Assertiva de saída: Retorna OK, ERRO ou IMPOSSIVEL conforme descrito acima. </p>
+
+</div>
+</div>
+<a id="a16ebd468ef1816235e72507144ab4c1e" name="a16ebd468ef1816235e72507144ab4c1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16ebd468ef1816235e72507144ab4c1e">&#9670;&#160;</a></span>copiar_arquivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int copiar_arquivo </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>origem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>destino</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: copiar_arquivo. </p>
+<p>Copia o conteúdo de um arquivo de origem para um arquivo de destino.</p>
+<p>Descrição: A função abre o arquivo de origem em modo binário, lê seu conteúdo e escreve no destino.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">origem</td><td>- Caminho do arquivo de origem. </td></tr>
+    <tr><td class="paramname">destino</td><td>- Caminho onde o arquivo deve ser criado/sobrescrito.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>int - Código de retorno da operação: 4 (OK) - Operação concluída com sucesso. 2 (ERRO) - Erro ao abrir ou copiar os arquivos.</dd></dl>
+<p>Assertiva de entrada: origem != NULL destino != NULL (verificar_existencia_arquivo(origem) == true)</p>
+<p>Assertiva de saída: Se retorna OK, o arquivo destino existe. Se retorna OK, (conteudo_arquivo(origem) == conteudo_arquivo(destino)) </p>
+
+</div>
+</div>
+<a id="a9929ff686229737197666d0b68a50f33" name="a9929ff686229737197666d0b68a50f33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9929ff686229737197666d0b68a50f33">&#9670;&#160;</a></span>verificar_existencia_arquivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool verificar_existencia_arquivo </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>caminho</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: verificar_existencia_arquivo. </p>
+<p>Verifica se um arquivo existe no caminho especificado.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminho</td><td>- Caminho do arquivo a ser verificado.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>bool - true se o arquivo existe, false caso contrário.</dd></dl>
+<p>Assertiva de entrada: caminho != NULL</p>
+<p>Assertiva de saída: Se retorna true, o arquivo existe no caminho especificado. Se retorna false, o arquivo não existe no caminho especificado. </p>
+
+</div>
+</div>
+<a id="ab9a56b96e7157ecf88985567868d5f76" name="ab9a56b96e7157ecf88985567868d5f76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a56b96e7157ecf88985567868d5f76">&#9670;&#160;</a></span>configurar_diretorios()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void configurar_diretorios </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>modo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>origem_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>destino_dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: configurar_diretorios. </p>
+<p>Configura os diretórios de origem e destino com base no modo de operação.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">modo</td><td>- 1 para Backup (HD -&gt; Pen Drive), 0 para Restauração (Pen Drive -&gt; HD). </td></tr>
+    <tr><td class="paramname">origem_dir</td><td>- Referência para a string que armazenará o diretório de origem. </td></tr>
+    <tr><td class="paramname">destino_dir</td><td>- Referência para a string que armazenará o diretório de destino.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Assertiva de entrada: modo == 1 || modo == 0</p>
+<p>Assertiva de saída: Se modo == 1, origem_dir == "hd/" e destino_dir == "pendrive/" Se modo == 0, origem_dir == "pendrive/" e destino_dir == "hd/" </p>
+
+</div>
+</div>
+<a id="ab617a7681426ec56b66caab4af98f350" name="ab617a7681426ec56b66caab4af98f350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab617a7681426ec56b66caab4af98f350">&#9670;&#160;</a></span>simular_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int simular_data </td>
+          <td>(</td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>caminho</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: simular_data. </p>
+<p>Altera a data de modificação de um arquivo para torná-lo mais recente.</p>
+<p>Descrição: Garante que o arquivo especificado tenha um timestamp mais recente que outro, ou que o sistema. Usa API do sistema operacional (utimes ou equivalente).</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminho</td><td>- Caminho do arquivo cuja data será alterada.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>int - Código de retorno da operação: 4 (OK) - Operação concluída com sucesso. 2 (ERRO) - Erro ao alterar a data do arquivo.</dd></dl>
+<p>Assertiva de entrada: caminho != NULL (verificar_existencia_arquivo(caminho) == true)</p>
+<p>Assertiva de saída: Se retorna OK, a data de modificação do arquivo foi alterada com sucesso. Se retorna OK, o arquivo existe no caminho especificado. </p>
+
+</div>
+</div>
+<a id="adc8ca1fc136115e5d4ff606f6fad5e8d" name="adc8ca1fc136115e5d4ff606f6fad5e8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc8ca1fc136115e5d4ff606f6fad5e8d">&#9670;&#160;</a></span>compara_datas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int compara_datas </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>caminho1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>caminho2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: compara_datas. </p>
+<p>Compara as datas de modificação de dois arquivos.</p>
+<p>Descrição: Retorna a diferença em segundos entre as datas de modificação dos arquivos.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminho1</td><td>- Caminho do primeiro arquivo. </td></tr>
+    <tr><td class="paramname">caminho2</td><td>- Caminho do segundo arquivo.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>int - Diferença em segundos entre as datas: <blockquote class="doxtable">
+<p>&zwj;0 se o primeiro arquivo é mais recente, </p>
+</blockquote>
+&lt; 0 se o segundo arquivo é mais recente, 0 se ambos têm a mesma data ou se algum arquivo não existe.</dd></dl>
+<p>Assertiva de entrada: caminho1 != NULL caminho2 != NULL</p>
+<p>Assertiva de saída: Se retorna &gt; 0, (data_modificacao(caminho1) &gt; data_modificacao(caminho2)) Se retorna &lt; 0, (data_modificacao(caminho1) &lt; data_modificacao(caminho2)) Se retorna 0, (data_modificacao(caminho1) == data_modificacao(caminho2)) ou algum dos arquivos não existe. </p>
+
+</div>
+</div>
+<a id="a038e55c71493c7df051d27512f684d04" name="a038e55c71493c7df051d27512f684d04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a038e55c71493c7df051d27512f684d04">&#9670;&#160;</a></span>executar_transferencia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int executar_transferencia </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arquivo_origem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arquivo_destino</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>origem_existe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>destino_existe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>modo_backup</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: executar_transferencia. </p>
+<p>Executa a lógica de transferência de arquivos (backup ou restauração) com base na existência dos arquivos e nas regras definidas.</p>
+<p>Descrição: A função determina a ação apropriada (cópia, erro ou nenhuma ação) com base na existência dos arquivos de origem e destino, bem como no modo de operação (backup ou restauração), seguindo a Tabela de Decisão.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arquivo_origem</td><td>- Caminho do arquivo de origem. </td></tr>
+    <tr><td class="paramname">arquivo_destino</td><td>- Caminho do arquivo de destino. </td></tr>
+    <tr><td class="paramname">origem_existe</td><td>- Flag indicando se o arquivo de origem existe. </td></tr>
+    <tr><td class="paramname">destino_existe</td><td>- Flag indicando se o arquivo de destino existe. </td></tr>
+    <tr><td class="paramname">modo_backup</td><td>- Flag que define o modo de operação: true para Backup, false para Restauração.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>int - Código de retorno da operação: 0 (BACKUP) - Operação de Backup concluída com sucesso. 1 (RESTAURACAO) - Operação de Restauração concluída com sucesso. 2 (ERRO) - Erro na operação devido a condições específicas. 5 (FAZ_NADA) - Nenhuma ação necessária (arquivo já está atualizado ou condição específica).</dd></dl>
+<p>Assertiva de entrada: arquivo_origem != NULL arquivo_destino != NULL (origem_existe == true || origem_existe == false) (destino_existe == true || destino_existe == false) (modo_backup == true || modo_backup == false)</p>
+<p>Assertiva de saída: Retorna BACKUP, RESTAURACAO, ERRO ou FAZ_NADA conforme descrito acima. </p>
+
+</div>
+</div>
+<a id="ade10469b0aece6d4d0b7bf03e705fbc1" name="ade10469b0aece6d4d0b7bf03e705fbc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade10469b0aece6d4d0b7bf03e705fbc1">&#9670;&#160;</a></span>copia_restauracao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int copia_restauracao </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arquivo_origem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arquivo_destino</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: copia_restauracao. </p>
+<p>Realiza a cópia direta de um arquivo de origem para um destino durante a restauração.</p>
+<p>Descrição: A função verifica se os caminhos de origem e destino são válidos e tenta copiar o arquivo.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">origem</td><td>- Caminho do arquivo de origem. </td></tr>
+    <tr><td class="paramname">destino</td><td>- Caminho do arquivo de destino.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>int - Código de retorno da operação: 1 (RESTAURACAO) - Restauração realizada com sucesso. 2 (ERRO) - Erro na operação de restauração.</dd></dl>
+<p>Assertiva de entrada: origem != NULL destino != NULL</p>
+<p>Assertiva de saída: Se retorna RESTAURACAO, (conteudo_arquivo(origem) == conteudo_arquivo(destino)) </p>
+
+</div>
+</div>
+<a id="a5071418d0cea10e5c6f259b928b7cd79" name="a5071418d0cea10e5c6f259b928b7cd79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5071418d0cea10e5c6f259b928b7cd79">&#9670;&#160;</a></span>copia_backup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int copia_backup </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arquivo_origem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>arquivo_destino</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função: copia_backup. </p>
+<p>Realiza a cópia direta de um arquivo de origem para um destino durante o backup.</p>
+<p>Descrição: A função verifica se os caminhos de origem e destino são válidos e tenta copiar o arquivo.</p>
+<p>Parâmetros: </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">origem</td><td>- Caminho do arquivo de origem. </td></tr>
+    <tr><td class="paramname">destino</td><td>- Caminho do arquivo de destino.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valor retornado: </p><dl class="section return"><dt>Retorna</dt><dd>int - Código de retorno da operação: 0 (BACKUP) - Backup realizado com sucesso. 2 (ERRO) - Erro na operação de backup.</dd></dl>
+<p>Assertiva de entrada: origem != NULL destino != NULL</p>
+<p>Assertiva de saída: Se retorna BACKUP, (conteudo_arquivo(origem) == conteudo_arquivo(destino)) </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="backup_8hpp.html">backup.hpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

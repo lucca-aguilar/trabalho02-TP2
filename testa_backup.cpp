@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch_amalgamated.hpp"
-#include "backup.h"
+#include "backup.hpp"
 
 #include <fstream>
 #include <iostream>

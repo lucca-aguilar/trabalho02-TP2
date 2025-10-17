@@ -1,0 +1,243 @@
+\doxysection{Referência ao ficheiro backup.\+cpp}
+\hypertarget{backup_8cpp}{}\label{backup_8cpp}\index{backup.cpp@{backup.cpp}}
+{\ttfamily \#include "{}backup.\+hpp"{}}\newline
+Diagrama de dependências de inclusão para backup.\+cpp\+:
+% FIG 0
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{backup_8cpp_a9929ff686229737197666d0b68a50f33}{verificar\+\_\+existencia\+\_\+arquivo}} (const string \&caminho)
+\begin{DoxyCompactList}\small\item\em Função\+: verificar\+\_\+existencia\+\_\+arquivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{backup_8cpp_ab9a56b96e7157ecf88985567868d5f76}{configurar\+\_\+diretorios}} (int modo, string \&origem\+\_\+dir, string \&destino\+\_\+dir)
+\begin{DoxyCompactList}\small\item\em Função\+: configurar\+\_\+diretorios. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{backup_8cpp_a16ebd468ef1816235e72507144ab4c1e}{copiar\+\_\+arquivo}} (const string \&origem, const string \&destino)
+\begin{DoxyCompactList}\small\item\em Função\+: copiar\+\_\+arquivo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{backup_8cpp_ac2b8579cd47b93279cf75bdc83191f8e}{copia\+\_\+restauracao}} (const string \&origem, const string \&destino)
+\begin{DoxyCompactList}\small\item\em Função\+: copia\+\_\+restauracao. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{backup_8cpp_aff822ad1d6f696704213d64d24ecbba4}{copia\+\_\+backup}} (const string \&origem, const string \&destino)
+\begin{DoxyCompactList}\small\item\em Função\+: copia\+\_\+backup. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{backup_8cpp_a0c201bc84239d183eb1d0177c7599b1f}{simular\+\_\+data}} (const string \&caminho)
+\item 
+int \mbox{\hyperlink{backup_8cpp_adc8ca1fc136115e5d4ff606f6fad5e8d}{compara\+\_\+datas}} (const string \&caminho1, const string \&caminho2)
+\begin{DoxyCompactList}\small\item\em Função\+: compara\+\_\+datas. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{backup_8cpp_a038e55c71493c7df051d27512f684d04}{executar\+\_\+transferencia}} (const string \&arquivo\+\_\+origem, const string \&arquivo\+\_\+destino, bool origem\+\_\+existe, bool destino\+\_\+existe, bool modo\+\_\+backup)
+\begin{DoxyCompactList}\small\item\em Função\+: executar\+\_\+transferencia. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{backup_8cpp_ae17bdd5525294b4aff6c7fac5f823486}{executar\+\_\+espelhamento}} (int fazer\+\_\+backup)
+\begin{DoxyCompactList}\small\item\em Função\+: executar\+\_\+espelhamento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{backup_8cpp_a9929ff686229737197666d0b68a50f33}\label{backup_8cpp_a9929ff686229737197666d0b68a50f33} 
+\index{backup.cpp@{backup.cpp}!verificar\_existencia\_arquivo@{verificar\_existencia\_arquivo}}
+\index{verificar\_existencia\_arquivo@{verificar\_existencia\_arquivo}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{verificar\_existencia\_arquivo()}{verificar\_existencia\_arquivo()}}
+{\footnotesize\ttfamily bool verificar\+\_\+existencia\+\_\+arquivo (\begin{DoxyParamCaption}\item[{const string \&}]{caminho }\end{DoxyParamCaption})}
+
+
+
+Função\+: verificar\+\_\+existencia\+\_\+arquivo. 
+
+Verifica se um arquivo existe no caminho especificado.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em caminho} & -\/ Caminho do arquivo a ser verificado.\\
+\hline
+\end{DoxyParams}
+Valor retornado\+: \begin{DoxyReturn}{Retorna}
+bool -\/ true se o arquivo existe, false caso contrário.
+\end{DoxyReturn}
+Assertiva de entrada\+: caminho != NULL
+
+Assertiva de saída\+: Se retorna true, o arquivo existe no caminho especificado. Se retorna false, o arquivo não existe no caminho especificado. \Hypertarget{backup_8cpp_ab9a56b96e7157ecf88985567868d5f76}\label{backup_8cpp_ab9a56b96e7157ecf88985567868d5f76} 
+\index{backup.cpp@{backup.cpp}!configurar\_diretorios@{configurar\_diretorios}}
+\index{configurar\_diretorios@{configurar\_diretorios}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{configurar\_diretorios()}{configurar\_diretorios()}}
+{\footnotesize\ttfamily void configurar\+\_\+diretorios (\begin{DoxyParamCaption}\item[{int}]{modo,  }\item[{string \&}]{origem\+\_\+dir,  }\item[{string \&}]{destino\+\_\+dir }\end{DoxyParamCaption})}
+
+
+
+Função\+: configurar\+\_\+diretorios. 
+
+Configura os diretórios de origem e destino com base no modo de operação.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em modo} & -\/ 1 para Backup (HD -\/\texorpdfstring{$>$}{>} Pen Drive), 0 para Restauração (Pen Drive -\/\texorpdfstring{$>$}{>} HD). \\
+\hline
+{\em origem\+\_\+dir} & -\/ Referência para a string que armazenará o diretório de origem. \\
+\hline
+{\em destino\+\_\+dir} & -\/ Referência para a string que armazenará o diretório de destino.\\
+\hline
+\end{DoxyParams}
+Assertiva de entrada\+: modo == 1 \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} modo == 0
+
+Assertiva de saída\+: Se modo == 1, origem\+\_\+dir == "{}hd/"{} e destino\+\_\+dir == "{}pendrive/"{} Se modo == 0, origem\+\_\+dir == "{}pendrive/"{} e destino\+\_\+dir == "{}hd/"{} \Hypertarget{backup_8cpp_a16ebd468ef1816235e72507144ab4c1e}\label{backup_8cpp_a16ebd468ef1816235e72507144ab4c1e} 
+\index{backup.cpp@{backup.cpp}!copiar\_arquivo@{copiar\_arquivo}}
+\index{copiar\_arquivo@{copiar\_arquivo}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{copiar\_arquivo()}{copiar\_arquivo()}}
+{\footnotesize\ttfamily int copiar\+\_\+arquivo (\begin{DoxyParamCaption}\item[{const string \&}]{origem,  }\item[{const string \&}]{destino }\end{DoxyParamCaption})}
+
+
+
+Função\+: copiar\+\_\+arquivo. 
+
+Copia o conteúdo de um arquivo de origem para um arquivo de destino.
+
+Descrição\+: A função abre o arquivo de origem em modo binário, lê seu conteúdo e escreve no destino.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em origem} & -\/ Caminho do arquivo de origem. \\
+\hline
+{\em destino} & -\/ Caminho onde o arquivo deve ser criado/sobrescrito.\\
+\hline
+\end{DoxyParams}
+Valor retornado\+: \begin{DoxyReturn}{Retorna}
+int -\/ Código de retorno da operação\+: 4 (OK) -\/ Operação concluída com sucesso. 2 (ERRO) -\/ Erro ao abrir ou copiar os arquivos.
+\end{DoxyReturn}
+Assertiva de entrada\+: origem != NULL destino != NULL (verificar\+\_\+existencia\+\_\+arquivo(origem) == true)
+
+Assertiva de saída\+: Se retorna OK, o arquivo destino existe. Se retorna OK, (conteudo\+\_\+arquivo(origem) == conteudo\+\_\+arquivo(destino)) \Hypertarget{backup_8cpp_ac2b8579cd47b93279cf75bdc83191f8e}\label{backup_8cpp_ac2b8579cd47b93279cf75bdc83191f8e} 
+\index{backup.cpp@{backup.cpp}!copia\_restauracao@{copia\_restauracao}}
+\index{copia\_restauracao@{copia\_restauracao}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{copia\_restauracao()}{copia\_restauracao()}}
+{\footnotesize\ttfamily int copia\+\_\+restauracao (\begin{DoxyParamCaption}\item[{const string \&}]{arquivo\+\_\+origem,  }\item[{const string \&}]{arquivo\+\_\+destino }\end{DoxyParamCaption})}
+
+
+
+Função\+: copia\+\_\+restauracao. 
+
+Realiza a cópia direta de um arquivo de origem para um destino durante a restauração.
+
+Descrição\+: A função verifica se os caminhos de origem e destino são válidos e tenta copiar o arquivo.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em origem} & -\/ Caminho do arquivo de origem. \\
+\hline
+{\em destino} & -\/ Caminho do arquivo de destino.\\
+\hline
+\end{DoxyParams}
+Valor retornado\+: \begin{DoxyReturn}{Retorna}
+int -\/ Código de retorno da operação\+: 1 (RESTAURACAO) -\/ Restauração realizada com sucesso. 2 (ERRO) -\/ Erro na operação de restauração.
+\end{DoxyReturn}
+Assertiva de entrada\+: origem != NULL destino != NULL
+
+Assertiva de saída\+: Se retorna RESTAURACAO, (conteudo\+\_\+arquivo(origem) == conteudo\+\_\+arquivo(destino)) \Hypertarget{backup_8cpp_aff822ad1d6f696704213d64d24ecbba4}\label{backup_8cpp_aff822ad1d6f696704213d64d24ecbba4} 
+\index{backup.cpp@{backup.cpp}!copia\_backup@{copia\_backup}}
+\index{copia\_backup@{copia\_backup}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{copia\_backup()}{copia\_backup()}}
+{\footnotesize\ttfamily int copia\+\_\+backup (\begin{DoxyParamCaption}\item[{const string \&}]{arquivo\+\_\+origem,  }\item[{const string \&}]{arquivo\+\_\+destino }\end{DoxyParamCaption})}
+
+
+
+Função\+: copia\+\_\+backup. 
+
+Realiza a cópia direta de um arquivo de origem para um destino durante o backup.
+
+Descrição\+: A função verifica se os caminhos de origem e destino são válidos e tenta copiar o arquivo.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em origem} & -\/ Caminho do arquivo de origem. \\
+\hline
+{\em destino} & -\/ Caminho do arquivo de destino.\\
+\hline
+\end{DoxyParams}
+Valor retornado\+: \begin{DoxyReturn}{Retorna}
+int -\/ Código de retorno da operação\+: 0 (BACKUP) -\/ Backup realizado com sucesso. 2 (ERRO) -\/ Erro na operação de backup.
+\end{DoxyReturn}
+Assertiva de entrada\+: origem != NULL destino != NULL
+
+Assertiva de saída\+: Se retorna BACKUP, (conteudo\+\_\+arquivo(origem) == conteudo\+\_\+arquivo(destino)) \Hypertarget{backup_8cpp_a0c201bc84239d183eb1d0177c7599b1f}\label{backup_8cpp_a0c201bc84239d183eb1d0177c7599b1f} 
+\index{backup.cpp@{backup.cpp}!simular\_data@{simular\_data}}
+\index{simular\_data@{simular\_data}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{simular\_data()}{simular\_data()}}
+{\footnotesize\ttfamily int simular\+\_\+data (\begin{DoxyParamCaption}\item[{const string \&}]{caminho }\end{DoxyParamCaption})}
+
+\Hypertarget{backup_8cpp_adc8ca1fc136115e5d4ff606f6fad5e8d}\label{backup_8cpp_adc8ca1fc136115e5d4ff606f6fad5e8d} 
+\index{backup.cpp@{backup.cpp}!compara\_datas@{compara\_datas}}
+\index{compara\_datas@{compara\_datas}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{compara\_datas()}{compara\_datas()}}
+{\footnotesize\ttfamily int compara\+\_\+datas (\begin{DoxyParamCaption}\item[{const string \&}]{caminho1,  }\item[{const string \&}]{caminho2 }\end{DoxyParamCaption})}
+
+
+
+Função\+: compara\+\_\+datas. 
+
+Compara as datas de modificação de dois arquivos.
+
+Descrição\+: Retorna a diferença em segundos entre as datas de modificação dos arquivos.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em caminho1} & -\/ Caminho do primeiro arquivo. \\
+\hline
+{\em caminho2} & -\/ Caminho do segundo arquivo.\\
+\hline
+\end{DoxyParams}
+Valor retornado\+: \begin{DoxyReturn}{Retorna}
+int -\/ Diferença em segundos entre as datas\+: \begin{quote}
+0 se o primeiro arquivo é mais recente, \end{quote}
+\texorpdfstring{$<$}{<} 0 se o segundo arquivo é mais recente, 0 se ambos têm a mesma data ou se algum arquivo não existe.
+\end{DoxyReturn}
+Assertiva de entrada\+: caminho1 != NULL caminho2 != NULL
+
+Assertiva de saída\+: Se retorna \texorpdfstring{$>$}{>} 0, (data\+\_\+modificacao(caminho1) \texorpdfstring{$>$}{>} data\+\_\+modificacao(caminho2)) Se retorna \texorpdfstring{$<$}{<} 0, (data\+\_\+modificacao(caminho1) \texorpdfstring{$<$}{<} data\+\_\+modificacao(caminho2)) Se retorna 0, (data\+\_\+modificacao(caminho1) == data\+\_\+modificacao(caminho2)) ou algum dos arquivos não existe. \Hypertarget{backup_8cpp_a038e55c71493c7df051d27512f684d04}\label{backup_8cpp_a038e55c71493c7df051d27512f684d04} 
+\index{backup.cpp@{backup.cpp}!executar\_transferencia@{executar\_transferencia}}
+\index{executar\_transferencia@{executar\_transferencia}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{executar\_transferencia()}{executar\_transferencia()}}
+{\footnotesize\ttfamily int executar\+\_\+transferencia (\begin{DoxyParamCaption}\item[{const string \&}]{arquivo\+\_\+origem,  }\item[{const string \&}]{arquivo\+\_\+destino,  }\item[{bool}]{origem\+\_\+existe,  }\item[{bool}]{destino\+\_\+existe,  }\item[{bool}]{modo\+\_\+backup }\end{DoxyParamCaption})}
+
+
+
+Função\+: executar\+\_\+transferencia. 
+
+Executa a lógica de transferência de arquivos (backup ou restauração) com base na existência dos arquivos e nas regras definidas.
+
+Descrição\+: A função determina a ação apropriada (cópia, erro ou nenhuma ação) com base na existência dos arquivos de origem e destino, bem como no modo de operação (backup ou restauração), seguindo a Tabela de Decisão.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em arquivo\+\_\+origem} & -\/ Caminho do arquivo de origem. \\
+\hline
+{\em arquivo\+\_\+destino} & -\/ Caminho do arquivo de destino. \\
+\hline
+{\em origem\+\_\+existe} & -\/ Flag indicando se o arquivo de origem existe. \\
+\hline
+{\em destino\+\_\+existe} & -\/ Flag indicando se o arquivo de destino existe. \\
+\hline
+{\em modo\+\_\+backup} & -\/ Flag que define o modo de operação\+: true para Backup, false para Restauração.\\
+\hline
+\end{DoxyParams}
+Valor retornado\+: \begin{DoxyReturn}{Retorna}
+int -\/ Código de retorno da operação\+: 0 (BACKUP) -\/ Operação de Backup concluída com sucesso. 1 (RESTAURACAO) -\/ Operação de Restauração concluída com sucesso. 2 (ERRO) -\/ Erro na operação devido a condições específicas. 5 (FAZ\+\_\+\+NADA) -\/ Nenhuma ação necessária (arquivo já está atualizado ou condição específica).
+\end{DoxyReturn}
+Assertiva de entrada\+: arquivo\+\_\+origem != NULL arquivo\+\_\+destino != NULL (origem\+\_\+existe == true \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} origem\+\_\+existe == false) (destino\+\_\+existe == true \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} destino\+\_\+existe == false) (modo\+\_\+backup == true \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} modo\+\_\+backup == false)
+
+Assertiva de saída\+: Retorna BACKUP, RESTAURACAO, ERRO ou FAZ\+\_\+\+NADA conforme descrito acima. \Hypertarget{backup_8cpp_ae17bdd5525294b4aff6c7fac5f823486}\label{backup_8cpp_ae17bdd5525294b4aff6c7fac5f823486} 
+\index{backup.cpp@{backup.cpp}!executar\_espelhamento@{executar\_espelhamento}}
+\index{executar\_espelhamento@{executar\_espelhamento}!backup.cpp@{backup.cpp}}
+\doxysubsubsection{\texorpdfstring{executar\_espelhamento()}{executar\_espelhamento()}}
+{\footnotesize\ttfamily int executar\+\_\+espelhamento (\begin{DoxyParamCaption}\item[{int}]{fazer\+\_\+backup }\end{DoxyParamCaption})}
+
+
+
+Função\+: executar\+\_\+espelhamento. 
+
+Executa a lógica principal de espelhamente (backup ou restauração).
+
+Descrição\+: A função lê o arquivo \textquotesingle{}Backup.\+parm\textquotesingle{}, compara datas e executa a ação apropriada de acordo com a Tabela de Decisão para cada arquivo. A ausência de \textquotesingle{}Backup.\+parm\textquotesingle{} ou a falta de arquivos a serem processados resultará em uma mensagem de erro.
+
+Parâmetros\+: 
+\begin{DoxyParams}{Parâmetros}
+{\em fazer\+\_\+backup} & -\/ Flag que define modo de operação\+: 1 para Backup (HD -\/\texorpdfstring{$>$}{>} Pen Drive) 0 para Restauração (Pen Drive -\/\texorpdfstring{$>$}{>} HD)\\
+\hline
+\end{DoxyParams}
+Valor retornado\+: \begin{DoxyReturn}{Retorna}
+int -\/ Código de retorno da operação\+: 0 (BACKUP) -\/ Operação de Backup concluída com sucesso. 1 (RESTAURACAO) -\/ Operação de Backup concluída com sucesso. 2 (ERRO) -\/ Erro na leitura do arquivo \textquotesingle{}Backup.\+parm\textquotesingle{} ou ausência de arquivos a serem processados. 3 (IMPOSSIVEL) -\/ Operação impossível devido a erros críticos. 5 (FAZ\+\_\+\+NADA) -\/ Nenhuma ação necessária (arquivo já está atualizado).
+\end{DoxyReturn}
+Assertiva de entrada\+: fazer\+\_\+backup == 1 \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} fazer\+\_\+backup == 0
+
+Assertiva de saída\+: Retorna OK, ERRO ou IMPOSSIVEL conforme descrito acima. 

@@ -4,19 +4,24 @@ GCOV_FLAGS = -fprofile-arcs -ftest-coverage
 DEBUG_FLAGS = -g
 TARGET = testa_backup
 
-YOUR_SOURCES = backup.cpp backup.hpp testa_backup.cpp
+YOUR_SOURCES = backup.cpp backup.hpppp testa_backup.cpp
 TEST_BUILD_SOURCES = testa_backup.cpp catch_amalgamated.cpp
+
+.PHONY: all test cpplint cppcheck gcov debug valgrind clean doc
 
 all: test
 
-$(TARGET): $(TEST_BUILD_SOURCES) backup.o
+$(TARGET): backup.o $(TEST_BUILD_SOURCES)
 	$(CXX) $(CXXFLAGS) backup.o $(TEST_BUILD_SOURCES) -o $(TARGET)
 
-velha.o: backup.cpp backup.hpp
+backup.o: backup.cpp backup.hpp
 	$(CXX) $(CXXFLAGS) -c backup.cpp
 
 test: $(TARGET)
 	./$(TARGET)
+
+doc:
+	doxygen
 
 cpplint:
 	cpplint $(YOUR_SOURCES)
@@ -30,13 +35,14 @@ gcov:
 	./$(TARGET)
 	gcov backup.cpp
 
+valgrind: $(TARGET)
+	valgrind --leak-check=yes --log-file=valgrind.rpt ./$(TARGET)
+
 debug:
 	$(CXX) $(CXXFLAGS) $(DEBUG_FLAGS) -c backup.cpp
 	$(CXX) $(CXXFLAGS) $(DEBUG_FLAGS) -g backup.o $(TEST_BUILD_SOURCES) -o $(TARGET)
 	gdb $(TARGET)
 
-valgrind: $(TARGET)
-	valgrind --leak-check=yes --log-file=valgrind.rpt ./$(TARGET)
-
 clean:
 	rm -f *.o *.gc* *.gcov *.gcda *.gcno $(TARGET) valgrind.rpt
+	rm -rf html latex
