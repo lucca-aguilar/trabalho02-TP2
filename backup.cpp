@@ -108,8 +108,6 @@ int executar_restauracao(const string& arquivo_origem, const string& arquivo_des
     return ERRO;
 }
 
-
-
 int executar_espelhamento(int fazer_backup) {
     assert(fazer_backup == 0 || fazer_backup == 1);
     
@@ -117,26 +115,24 @@ int executar_espelhamento(int fazer_backup) {
     if (!arquivo_parm.is_open()) {
         return IMPOSSIVEL;
     }
-
     string linha;
-    if(getline(arquivo_parm, linha)) {
-        string origem_dir;
-        string destino_dir;
 
-        configurar_diretorios(fazer_backup, origem_dir, destino_dir);
+    assert(getline(arquivo_parm, linha) || linha.empty());
 
-        string arquivo_origem = origem_dir + linha;
-        string arquivo_destino = destino_dir + linha;
+    string origem_dir;
+    string destino_dir;
+    configurar_diretorios(fazer_backup, origem_dir, destino_dir);
+    string arquivo_origem = origem_dir + linha;
+    string arquivo_destino = destino_dir + linha;
 
-        bool origem_existe = verificar_existencia_arquivo(arquivo_origem);
-        bool destino_existe = verificar_existencia_arquivo(arquivo_destino);
+    bool origem_existe = verificar_existencia_arquivo(arquivo_origem);
+    bool destino_existe = verificar_existencia_arquivo(arquivo_destino);
 
-        if(fazer_backup == 1) {
-            return executar_backup(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
-        } else {
-            return executar_restauracao(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
-        }
-    };
+    if(fazer_backup == 1) {
+        return executar_backup(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
+    } else {
+        return executar_restauracao(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
+    }
 
     return ERRO;
 }
