@@ -93,18 +93,31 @@ int executar_backup(const string& arquivo_origem,const string& arquivo_destino,b
 }
 
 int executar_restauracao(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe){
-    if((!origem_existe && !destino_existe) || (!origem_existe && destino_existe)) {
+    if(!origem_existe) {
         return ERRO;
     }
 
-    if(origem_existe) {
+    if (!destino_existe) {
         if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
             return RESTAURACAO;
         } else {
             return ERRO;
         }
     }
-
+    
+    int comparacao = compara_datas(arquivo_origem, arquivo_destino);
+    if (comparacao < 0) {
+        return ERRO; 
+    }
+    
+    if (comparacao > 0) {
+        if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
+            return RESTAURACAO;
+        } else {
+            return ERRO;
+        }
+    }
+    
     return ERRO;
 }
 
