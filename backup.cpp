@@ -80,50 +80,34 @@ int compara_datas(const string& caminho1, const string& caminho2) {
     }
 }
 
-int executar_backup(const string& arquivo_origem,const string& arquivo_destino,bool origem_existe,bool destino_existe){
-    if(!origem_existe && !destino_existe) {
-        return ERRO;
-    }
+int executar_transferencia(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe, bool modo_backup){
+    auto func_copia = modo_backup ? copia_backup : copia_restauracao;
 
-    if(origem_existe && !destino_existe) {
-        return copia_backup(arquivo_origem, arquivo_destino);
-    }
-
-    if(!origem_existe && destino_existe) {
+    if (modo_backup && !origem_existe && destino_existe) {
         return FAZ_NADA;
     }
 
-    if(origem_existe && destino_existe) {
-        if(compara_datas(arquivo_origem, arquivo_destino) > 0) {
-            return copia_backup(arquivo_origem, arquivo_destino);
-        } else if (compara_datas(arquivo_origem, arquivo_destino) == 0) {
-             return FAZ_NADA;
-        } else {
-            return ERRO;
-        }
-    }
-
-    return ERRO;
-}
-
-int executar_restauracao(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe){
-    if(!origem_existe) {
+    if (!origem_existe) {
         return ERRO;
     }
 
-    if (!destino_existe) {
-        return copia_restauracao(arquivo_origem, arquivo_destino);
-    }
-    
-    if(origem_existe && destino_existe) {
-        if(compara_datas(arquivo_origem, arquivo_destino) > 0) {
-            return copia_restauracao(arquivo_origem, arquivo_destino);
-        } else if (compara_datas(arquivo_origem, arquivo_destino) == 0) {
-             return FAZ_NADA;
-        } 
+    if (origem_existe && !destino_existe) {
+        return func_copia(arquivo_origem, arquivo_destino);
     }
 
-    return ERRO;
+    if (origem_existe && destino_existe) {
+        int comparacao = compara_datas(arquivo_origem, arquivo_destino);
+        
+        if (comparacao > 0) {
+            return func_copia(arquivo_origem, arquivo_destino);
+        } else if (comparacao == 0) {
+             return FAZ_NADA;
+        } else {
+            return ERRO; 
+        }
+    }
+
+    return ERRO; 
 }
 
 int executar_espelhamento(int fazer_backup) {
@@ -147,10 +131,8 @@ int executar_espelhamento(int fazer_backup) {
     bool destino_existe = verificar_existencia_arquivo(arquivo_destino);
 
     if(fazer_backup == 1) {
-        return executar_backup(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
+        return executar_transferencia(arquivo_origem, arquivo_destino, origem_existe, destino_existe, true);
     } else {
-        return executar_restauracao(arquivo_origem, arquivo_destino, origem_existe, destino_existe);
+        return executar_transferencia(arquivo_origem, arquivo_destino, origem_existe, destino_existe, false);
     }
-
-    return ERRO;
 }

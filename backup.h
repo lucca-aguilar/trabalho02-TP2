@@ -167,62 +167,38 @@ int simular_data(string& caminho);
 int compara_datas(const string& caminho1, const string& caminho2);
 
 /**
- * Função: executar_backup
- * @brief Executa a lógica de backup entre dois arquivos.
+ * Função: executar_transferencia
+ * @brief Executa a lógica de transferência de arquivos (backup ou restauração) com base na existência dos arquivos e nas regras definidas.
  * 
  * Descrição:
- * Compara a existência e datas dos arquivos de origem e destino para decidir se deve copiar o arquivo.
+ * A função determina a ação apropriada (cópia, erro ou nenhuma ação) com base na existência dos arquivos de origem e destino,
+ * bem como no modo de operação (backup ou restauração), seguindo a Tabela de Decisão.
  * 
  * Parâmetros:
  * @param arquivo_origem - Caminho do arquivo de origem.
  * @param arquivo_destino - Caminho do arquivo de destino.
  * @param origem_existe - Flag indicando se o arquivo de origem existe.
  * @param destino_existe - Flag indicando se o arquivo de destino existe.
+ * @param modo_backup - Flag que define o modo de operação: true para Backup, false para Restauração.
  * 
  * Valor retornado:
  * @return int - Código de retorno da operação:
- * 0 (BACKUP) - Backup realizado com sucesso.
- * 2 (ERRO) - Erro na operação de backup.
- * 5 (FAZ_NADA) - Nenhuma ação necessária (arquivo já está atualizado).
+ * 0 (BACKUP) - Operação de Backup concluída com sucesso.
+ * 1 (RESTAURACAO) - Operação de Restauração concluída com sucesso.
+ * 2 (ERRO) - Erro na operação devido a condições específicas.
+ * 5 (FAZ_NADA) - Nenhuma ação necessária (arquivo já está atualizado ou condição específica).
  * 
  * Assertiva de entrada:
  * arquivo_origem != NULL
  * arquivo_destino != NULL
+ * (origem_existe == true || origem_existe == false)
+ * (destino_existe == true || destino_existe == false)
+ * (modo_backup == true || modo_backup == false)
  * 
  * Assertiva de saída:
- * Se retorna BACKUP, (conteudo_arquivo(arquivo_origem) == conteudo_arquivo(arquivo_destino))
- * Se retorna FAZ_NADA, (conteudo_arquivo(arquivo_origem) == conteudo_arquivo(arquivo_destino)) ou (origem_existe == false) or (destino_existe == false)            
- * Se retorna ERRO, (conteudo_arquivo(arquivo_origem) != conteudo_arquivo(arquivo_destino)) and (origem_existe == false) and (destino_existe == false)          
+ * Retorna BACKUP, RESTAURACAO, ERRO ou FAZ_NADA conforme descrito acima.
  */
-int executar_backup(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe);
-
-/**
- * Função: executar_restauracao
- * @brief Executa a lógica de restauração entre dois arquivos.      
- * 
- * Descrição:
- * Compara a existência dos arquivos de origem e destino para decidir se deve copiar o arquivo.
- * 
- * Parâmetros:
- * @param arquivo_origem - Caminho do arquivo de origem.
- * @param arquivo_destino - Caminho do arquivo de destino.
- * @param origem_existe - Flag indicando se o arquivo de origem existe.
- * @param destino_existe - Flag indicando se o arquivo de destino existe.
- * 
- * Valor retornado:
- * @return int - Código de retorno da operação:
- * 1 (RESTAURACAO) - Restauração realizada com sucesso.
- * 2 (ERRO) - Erro na operação de restauração.
- * 
- * Assertiva de entrada:
- * arquivo_origem != NULL
- * arquivo_destino != NULL
- * 
- * Assertiva de saída:
- * Se retorna RESTAURACAO, (conteudo_arquivo(arquivo_origem) == conteudo_arquivo(arquivo_destino))
- * Se retorna ERRO, (conteudo_arquivo(arquivo_origem) != conteudo_arquivo(arquivo_destino)) and (origem_existe == false) and (destino_existe == false) or (origem_existe == false) and (destino_existe == true)
- */
-int executar_restauracao(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe);
+int executar_transferencia(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe, bool modo_backup);
 
 /**
  * Função: copia_restauracao
