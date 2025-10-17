@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sys/stat.h>
 #include <ctime>
+#include <cmath>
 
 using namespace std;
 

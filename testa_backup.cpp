@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
+#include <unistd.h>
 
 using namespace std;
 
@@ -62,6 +63,7 @@ struct Teste3Fixture {
 
         criar_arquivo(BACKUP_PARM, TEST_ARQUIVO + "\n");
         criar_arquivo(PENDRIVE_ARQUIVO, "Conteúdo antigo do arquivo do teste da Regra 3.");
+        usleep(1000000); 
         criar_arquivo(HD_ARQUIVO, "Conteúdo do arquivo do teste da Regra 3.");
     }
 

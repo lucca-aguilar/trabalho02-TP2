@@ -49,15 +49,17 @@ int compara_datas(const string& caminho1, const string& caminho2) {
     struct stat stat1;
     struct stat stat2;
 
-    if(stat(caminho1.c_str(), &stat1) != 0) {
-        return 0;
+    if(stat(caminho1.c_str(), &stat1) != 0 || stat(caminho2.c_str(), &stat2) != 0) {
+        return 0; 
     }
 
-    if(stat(caminho2.c_str(), &stat2) != 0) {
-        return 0;
+    if(stat1.st_mtime > stat2.st_mtime) {
+        return 1; 
+    } else if(stat1.st_mtime < stat2.st_mtime) {
+        return -1; 
+    } else {
+        return 0; 
     }
-
-    return difftime(stat1.st_mtime, stat2.st_mtime);
 }
 
 int executar_espelhamento(int fazer_backup) {
@@ -101,6 +103,8 @@ int executar_espelhamento(int fazer_backup) {
                     } else {
                         return ERRO;
                     }
+                } else {
+                    return FAZ_NADA;
                 }
             }
             return BACKUP;
