@@ -117,7 +117,7 @@ int executar_restauracao(const string& arquivo_origem, const string& arquivo_des
     
     if(origem_existe && destino_existe) {
         if(compara_datas(arquivo_origem, arquivo_destino) > 0) {
-            return copia_backup(arquivo_origem, arquivo_destino);
+            return copia_restauracao(arquivo_origem, arquivo_destino);
         } else if (compara_datas(arquivo_origem, arquivo_destino) == 0) {
              return FAZ_NADA;
         } 
