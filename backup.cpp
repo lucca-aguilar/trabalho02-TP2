@@ -35,6 +35,24 @@ int copiar_arquivo(const string& origem, const string& destino) {
     return OK;
 } 
 
+int copia_restauracao(const string& origem, const string& destino) {
+    assert(!origem.empty() && !destino.empty());
+
+    if(copiar_arquivo(origem, destino) == OK) {
+        return RESTAURACAO;
+    }
+    return ERRO;
+}
+
+int copia_backup(const string& origem, const string& destino) {
+    assert(!origem.empty() && !destino.empty());
+
+    if(copiar_arquivo(origem, destino) == OK) {
+        return BACKUP;
+    }
+    return ERRO;
+}
+
 int simular_data(const string& caminho) {
     assert(!caminho.empty());
     if(system(("touch " + caminho).c_str()) == 0) {
@@ -77,11 +95,7 @@ int executar_backup(const string& arquivo_origem,const string& arquivo_destino,b
 
     if(origem_existe && destino_existe) {
         if(compara_datas(arquivo_origem, arquivo_destino) > 0) {
-            if(copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
-                return BACKUP;
-            } else {
-                return ERRO;
-            }
+            return copia_backup(arquivo_origem, arquivo_destino);
         } else if (compara_datas(arquivo_origem, arquivo_destino) == 0) {
              return FAZ_NADA;
         } else {
@@ -98,11 +112,7 @@ int executar_restauracao(const string& arquivo_origem, const string& arquivo_des
     }
 
     if (!destino_existe) {
-        if (copiar_arquivo(arquivo_origem, arquivo_destino) == OK) {
-            return RESTAURACAO;
-        } else {
-            return ERRO;
-        }
+        return copia_restauracao(arquivo_origem, arquivo_destino);
     }
     
     int comparacao = compara_datas(arquivo_origem, arquivo_destino);

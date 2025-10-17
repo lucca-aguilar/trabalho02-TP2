@@ -223,4 +223,54 @@ int executar_backup(const string& arquivo_origem, const string& arquivo_destino,
  * Se retorna ERRO, (conteudo_arquivo(arquivo_origem) != conteudo_arquivo(arquivo_destino)) and (origem_existe == false) and (destino_existe == false) or (origem_existe == false) and (destino_existe == true)
  */
 int executar_restauracao(const string& arquivo_origem, const string& arquivo_destino, bool origem_existe, bool destino_existe);
+
+/**
+ * Função: copia_restauracao
+ * @brief Realiza a cópia direta de um arquivo de origem para um destino durante a restauração.
+ * 
+ * Descrição:
+ * A função verifica se os caminhos de origem e destino são válidos e tenta copiar o arquivo.
+ * 
+ * Parâmetros:
+ * @param origem - Caminho do arquivo de origem.
+ * @param destino - Caminho do arquivo de destino.
+ * 
+ * Valor retornado:
+ * @return int - Código de retorno da operação:
+ * 1 (RESTAURACAO) - Restauração realizada com sucesso.
+ * 2 (ERRO) - Erro na operação de restauração.
+ * 
+ * Assertiva de entrada:
+ * origem != NULL
+ * destino != NULL
+ * 
+ * Assertiva de saída:
+ * Se retorna RESTAURACAO, (conteudo_arquivo(origem) == conteudo_arquivo(destino))
+ */
+int copia_restauracao(const string& arquivo_origem, const string& arquivo_destino);    
+
+/**
+ * Função: copia_backup
+ * @brief Realiza a cópia direta de um arquivo de origem para um destino durante o backup.
+ * 
+ * Descrição:
+ * A função verifica se os caminhos de origem e destino são válidos e tenta copiar o arquivo.
+ * 
+ * Parâmetros:
+ * @param origem - Caminho do arquivo de origem.
+ * @param destino - Caminho do arquivo de destino.
+ * 
+ * Valor retornado:
+ * @return int - Código de retorno da operação:
+ * 0 (BACKUP) - Backup realizado com sucesso.
+ * 2 (ERRO) - Erro na operação de backup.
+ * 
+ * Assertiva de entrada:
+ * origem != NULL
+ * destino != NULL
+ * 
+ * Assertiva de saída:
+ * Se retorna BACKUP, (conteudo_arquivo(origem) == conteudo_arquivo(destino))
+ */
+int copia_backup(const string& arquivo_origem, const string& arquivo_destino);
 #endif // BACKUP_H
