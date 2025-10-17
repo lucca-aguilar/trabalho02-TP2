@@ -82,8 +82,10 @@ int executar_backup(const string& arquivo_origem,const string& arquivo_destino,b
             } else {
                 return ERRO;
             }
+        } else if (compara_datas(arquivo_origem, arquivo_destino) == 0) {
+             return FAZ_NADA;
         } else {
-            return FAZ_NADA;
+            return ERRO;
         }
     }
 
