@@ -132,7 +132,7 @@ struct Teste7Fixture {
 
         criar_arquivo(BACKUP_PARM, TEST_ARQUIVO + "\n");
         criar_arquivo(PENDRIVE_ARQUIVO, "Conteúdo do arquivo do teste da Regra 7.");
-        usleep(100000);
+        usleep(1000000);
         criar_arquivo(HD_ARQUIVO, "Conteúdo do arquivo do teste da Regra 7.");
     }
 
